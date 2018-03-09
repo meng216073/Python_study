@@ -1,0 +1,7 @@
+Pandas 主要分为两部分一个是Serials一个是DataFrame这两个一个是数列一个是矩阵.
+Serials是一个列向量类似的结构通过index进行引导
+Dataframe是一个(index,columns)组成的矩阵,其中的ix, loc, iloc是不同的引导方式
+loc是通过index进行元素的定位,
+iloc是通过行号进行选择,
+ix是两者都可以可以使用行号也可以使用index.
+不能使用columns进行选择否则会报错.
