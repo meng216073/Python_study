@@ -1,0 +1,52 @@
+原文网址:http://blog.csdn.net/u012609509/article/details/70230204
+
+
+Python中的几种矩阵乘法
+1. 同线性代数中矩阵乘法的定义： np.dot()
+np.dot(A, B)：对于二维矩阵，计算真正意义上的矩阵乘积，同线性代数中矩阵乘法的定义。对于一维矩阵，计算两者的内积。见如下Python代码：
+
+import numpy as np
+
+# 2-D array: 2 x 3
+two_dim_matrix_one = np.array([[1, 2, 3], [4, 5, 6]])
+# 2-D array: 3 x 2
+two_dim_matrix_two = np.array([[1, 2], [3, 4], [5, 6]])
+
+two_multi_res = np.dot(two_dim_matrix_one, two_dim_matrix_two)
+print('two_multi_res: %s' %(two_multi_res))
+
+# 1-D array
+one_dim_vec_one = np.array([1, 2, 3])
+one_dim_vec_two = np.array([4, 5, 6])
+one_result_res = np.dot(one_dim_vec_one, one_dim_vec_two)
+print('one_result_res: %s' %(one_result_res))
+
+结果如下：
+
+two_multi_res: [[22 28]
+ [49 64]]
+one_result_res: 32
+
+2. 对应元素相乘 element-wise product: np.multiply(), 或 *
+在Python中，实现对应元素相乘，有2种方式，一个是np.multiply()，另外一个是*。见如下Python代码：
+
+import numpy as np
+
+# 2-D array: 2 x 3
+two_dim_matrix_one = np.array([[1, 2, 3], [4, 5, 6]])
+another_two_dim_matrix_one = np.array([[7, 8, 9], [4, 7, 1]])
+
+# 对应元素相乘 element-wise product
+element_wise = two_dim_matrix_one * another_two_dim_matrix_one
+print('element wise product: %s' %(element_wise))
+
+# 对应元素相乘 element-wise product
+element_wise_2 = np.multiply(two_dim_matrix_one, another_two_dim_matrix_one)
+print('element wise product: %s' % (element_wise_2))
+
+结果如下：
+
+element wise product: [[ 7 16 27]
+ [16 35  6]]
+element wise product: [[ 7 16 27]
+ [16 35  6]]
